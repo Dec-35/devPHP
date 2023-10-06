@@ -15,6 +15,29 @@
 
             ?>
         </h1>
+        <p>
+            Ceci est un test pour l'exercice 1
+        </p>
+
+        <code>
+            <?php
+            $chiffre = 5;
+            $mot = "Bonjour";
+            $boolen = true;
+            $tableau = array(1, 2, 3, 4, 5);
+
+            echo $chiffre, " ", $mot;
+
+
+            ?>
+            
+        </code>
+        <br>
+        <code>
+            <?php
+            var_dump($tableau);
+            ?>
+        </code>
 
     </body>
 
