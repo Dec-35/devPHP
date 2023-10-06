@@ -15,9 +15,9 @@
 
             ?>
         </h1>
-        <p>
+        <h3>
             Ceci est un test pour l'exercice 1
-        </p>
+        </h3>
 
         <code>
             <?php
@@ -32,7 +32,6 @@
             ?>
             
         </code>
-        <br>
         <code>
             <?php
             var_dump($tableau);
