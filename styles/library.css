@@ -39,6 +39,7 @@ body {
     gap: 0.5em;
     flex-grow: 1;
     position: relative;
+    z-index: 30;
 }
 
 .card>div::before {
@@ -55,6 +56,10 @@ body {
 .card div p {
     margin: 0.5em 0;
     font-size: 0.9em;
+}
+
+h3 {
+    width: fit-content;
 }
 
 h5 {
@@ -75,7 +80,8 @@ h4 {
     align-items: center;
 }
 
-.heartIcon {
+
+i {
     content: '';
     display: inline-block;
     background-color: #efefef;
@@ -84,7 +90,12 @@ h4 {
     mask-repeat: no-repeat;
     margin-left: auto;
     width: 1.2em;
-    aspect-ratio: 1;
+    height: 1.2em;
+    cursor: pointer;
+}
+
+i.liked {
+    mask-image: url('../resrouces/heart-solid-svgrepo-com.svg') !important;
 }
 
 #gamesController {
@@ -92,7 +103,8 @@ h4 {
     width: calc(100% - 2em - var(--navDistance));
     margin: 0 calc(var(--navDistance) / 2);
     top: 1em;
-    background-color: #242424;
+    background-color: #242424de;
+    backdrop-filter: blur(10px);
     padding: 1em;
     display: flex;
     flex-direction: row;
@@ -101,6 +113,7 @@ h4 {
     border-radius: 8px;
     position: fixed;
     box-shadow: 0 0 8px #141414af;
+    z-index: 99;
 }
 
 #addGameForm,
@@ -110,13 +123,15 @@ h4 {
     gap: 0.5em;
     width: 100%;
     margin: 0;
+
 }
 
-form span {
+span {
     display: flex;
     width: 100%;
     flex-direction: row;
     gap: 0.5em;
+    align-items: center;
 }
 
 form input,
@@ -172,6 +187,8 @@ option {
     gap: 1em;
     align-items: center;
     animation: disapear 0.5s 2.5s ease-out forwards;
+    z-index: 100;
+    font-size: 0.85em;
 }
 
 @keyframes disapear {

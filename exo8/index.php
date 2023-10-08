@@ -66,7 +66,9 @@ foreach (array_values($jeux) as $heures) {
 
     </div>
 
-    <h3>Exercice 8 - Bibliothèque de jeux</h3>
+    <span>
+        <h3>Exercice 8 - Bibliothèque de jeux</h3><i id="heartFilter" onclick="toggleLikedFilter(this)"></i>
+    </span>
     <div id="gallery">
 
 
@@ -81,8 +83,47 @@ foreach (array_values($jeux) as $heures) {
 </body>
 <script>
     <?php
-    echo "const games = " . json_encode($jeux) . ";"
+    echo "const games = " . json_encode($jeux) . ";";
     ?>
+    let likedGames;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        likedGames = JSON.parse(localStorage.getItem('likedGames')) || []
+
+        likedGames.forEach(game => {
+            const titles = document.querySelectorAll('.h5Container h5')
+            titles.forEach(title => {
+
+                if (title.innerText.includes(game)) {
+                    const heartIcon = title.parentElement.querySelector('.heartIcon')
+                    toggleLiked(heartIcon)
+                }
+            })
+        })
+    })
+
+    function toggleLikedFilter(filter) {
+        filter.classList.toggle('liked')
+
+        if (filter.classList.contains('liked')) {
+            const cards = document.querySelectorAll('.card')
+            cards.forEach(card => {
+                if (!card.querySelector('.heartIcon').classList.contains('liked')) {
+                    card.style.display = 'none'
+                }
+            })
+
+
+
+        } else {
+            const cards = document.querySelectorAll('.card')
+            cards.forEach(card => {
+                card.style.display = 'block'
+            })
+        }
+
+    }
+
 
     function showAlert(message) {
         const alert = document.createElement('div')
@@ -127,7 +168,12 @@ foreach (array_values($jeux) as $heures) {
             title.innerText = game
             const heartIcon = document.createElement('i')
             heartIcon.classList.add('heartIcon')
+
+            heartIcon.addEventListener('click', () => {
+                toggleLiked(heartIcon)
+            })
             titleContainer.appendChild(title)
+
             titleContainer.appendChild(heartIcon)
             titleContainer.classList.add('h5Container')
 
@@ -162,6 +208,23 @@ foreach (array_values($jeux) as $heures) {
         localStorage.setItem(name, image)
 
         return image;
+    }
+
+    function toggleLiked(icon) {
+        icon.classList.toggle('liked')
+        const gameName = icon.parentElement.innerText
+
+        if (icon.classList.contains('liked')) {
+            if (!likedGames.includes(gameName))
+                likedGames.push(gameName)
+        } else {
+            const index = likedGames.indexOf(gameName)
+            likedGames.splice(index, 1)
+        }
+
+
+        localStorage.setItem('likedGames', JSON.stringify(likedGames))
+
     }
 </script>
 
