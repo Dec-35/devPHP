@@ -88,6 +88,9 @@ i {
     mask-image: url('../resources/heart-svgrepo-com.svg');
     mask-size: contain;
     mask-repeat: no-repeat;
+    -webkit-mask-image: url('../resources/heart-svgrepo-com.svg');
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
     margin-left: auto;
     width: 1.2em;
     height: 1.2em;
@@ -96,6 +99,7 @@ i {
 
 i.liked {
     mask-image: url('../resources/heart-solid-svgrepo-com.svg') !important;
+    -webkit-mask-image: url('../resources/heart-solid-svgrepo-com.svg') !important;
 }
 
 #gamesController {
@@ -153,6 +157,7 @@ form input#hours {
 
 input[type='number'] {
     -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 input[type='submit'] {
