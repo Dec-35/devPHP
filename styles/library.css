@@ -1,0 +1,185 @@
+body {
+    background-color: #181818;
+    color: #efefef;
+    padding-top: 11rem;
+}
+
+#gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.card {
+    background-color: #242424;
+    box-shadow: 0 0 8px #0e0e0e55;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    aspect-ratio: 3/4;
+    width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+
+.card img {
+    height: 70%;
+    object-fit: cover;
+    aspect-ratio: initial;
+}
+
+.card>div {
+    padding: 0.8em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    flex-grow: 1;
+    position: relative;
+}
+
+.card>div::before {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    content: '';
+    top: -50px;
+    left: 0;
+    background: linear-gradient(transparent, #000000bd);
+}
+
+
+.card div p {
+    margin: 0.5em 0;
+    font-size: 0.9em;
+}
+
+h5 {
+    margin: 0;
+    font-size: 1.35em;
+    width: fit-content;
+}
+
+h4 {
+    margin: 0;
+    margin-top: 1em;
+    text-align: right;
+}
+
+.h5Container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.heartIcon {
+    content: '';
+    display: inline-block;
+    background-color: #efefef;
+    mask-image: url('../resrouces/heart-svgrepo-com.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    margin-left: auto;
+    width: 1.2em;
+    aspect-ratio: 1;
+}
+
+#gamesController {
+    --navDistance: 2em;
+    width: calc(100% - 2em - var(--navDistance));
+    margin: 0 calc(var(--navDistance) / 2);
+    top: 1em;
+    background-color: #242424;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    box-sizing: border-box;
+    border-radius: 8px;
+    position: fixed;
+    box-shadow: 0 0 8px #141414af;
+}
+
+#addGameForm,
+#deleteGameForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+    margin: 0;
+}
+
+form span {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+form input,
+form select {
+    padding: 0.8em;
+    border-radius: 4px;
+    border: none;
+    background-color: #000000;
+    color: #efefef;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.8em;
+    width: 100%;
+}
+
+form input#hours {
+    width: 55%;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input[type='submit'] {
+    transition: all 0.1s ease-out;
+    font-weight: 600;
+    background-color: #bbbbbb;
+    color: #000000;
+}
+
+input[type='submit']:hover {
+    background-color: #505050;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+option {
+    font-family: 'Inter', sans-serif;
+}
+
+.alert {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    padding: 1em;
+    background-color: #074e1d;
+    color: #efefef;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #0e0e0ece;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    animation: disapear 0.5s 2.5s ease-out forwards;
+}
+
+@keyframes disapear {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
