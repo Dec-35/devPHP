@@ -85,7 +85,7 @@ i {
     content: '';
     display: inline-block;
     background-color: #efefef;
-    mask-image: url('../resrouces/heart-svgrepo-com.svg');
+    mask-image: url('../resources/heart-svgrepo-com.svg');
     mask-size: contain;
     mask-repeat: no-repeat;
     margin-left: auto;
@@ -95,7 +95,7 @@ i {
 }
 
 i.liked {
-    mask-image: url('../resrouces/heart-solid-svgrepo-com.svg') !important;
+    mask-image: url('../resources/heart-solid-svgrepo-com.svg') !important;
 }
 
 #gamesController {
