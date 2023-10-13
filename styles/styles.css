@@ -108,3 +108,7 @@ input[type="submit"]:hover {
     justify-content: center;
     height: 70vh;
 }
+
+.center code {
+    margin-bottom: 0;
+}

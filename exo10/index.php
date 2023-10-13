@@ -19,6 +19,7 @@ $num = $_POST['number'];
             <input type="number" name="number" id="number" placeholder="Entrer un nombre">
             <input type="submit" value="envoyer">
         </form>
+        <br>
         <code>Factoriel :
             <?php
 
@@ -33,6 +34,21 @@ $num = $_POST['number'];
 
             echo factorielle($num);
 
+            ?>
+        </code>
+
+        <code>Somme des carrés :
+            <?php
+            function sommecarre($nb)
+            {
+                if ($nb == 0) {
+                    return 0;
+                } else {
+                    return $nb * $nb + sommecarre($nb - 1);
+                }
+            }
+
+            echo sommecarre($num);
             ?>
         </code>
 
