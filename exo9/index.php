@@ -5,25 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>age</title>
+    <link rel="stylesheet" href="/styles/styles.css">
 </head>
 
 <body>
-    <form action="" method="POST">
-        <input type="number" name="age" id="age" placeholder="age">
-        <input type="submit" value="envoyer">
-    </form>
+    <div class="center">
+        <form action="" method="POST">
+            <input type="number" name="age" id="age" placeholder="age">
+            <input type="submit" value="envoyer">
+        </form>
+        <code>
+            <?php
 
-    <?php
+            $age = $_POST['age'];
 
-    $age = $_POST['age'];
+            if ($age >= 18) {
+                echo "Vous êtes majeur";
+            } else {
+                echo "Vous êtes mineur";
+            } ?>
+        </code>
 
-    if ($age >= 18) {
-        echo "Vous êtes majeur";
-    } else {
-        echo "Vous êtes mineur";
-    }
 
-    ?>
+
+    </div>
+
 </body>
 
 </html>

@@ -8,6 +8,7 @@ body {
 
 * {
     font-family: 'Inter';
+    box-sizing: border-box;
 }
 
 p {
@@ -23,6 +24,7 @@ code {
     font-size: 0.9em;
     letter-spacing: -1px;
     margin-bottom: 8px;
+    width: 100%;
 }
 
 pre.php {
@@ -69,4 +71,40 @@ a {
     justify-content: space-around;
     width: fit-content;
     gap: 0.3em;
+}
+
+form {
+    display: flex;
+    gap: 0.5em;
+    flex-direction: row;
+    width: 100%;
+}
+
+input {
+    background-color: #eee;
+    border: none;
+    padding: 0.7em;
+    border-radius: 5px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    font-weight: 600;
+    width: fit-content;
+    padding: 0.7em 1em;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+.center {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    justify-content: center;
+    height: 70vh;
 }
