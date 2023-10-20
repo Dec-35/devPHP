@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>devinez</title>
-    <link rel="stylesheet" href="/styles//styles.css">
+        <link rel="stylesheet" href="../../styles/styles.css">
 </head>
 
 <body onload="document.querySelector('#number').focus()">
     <div class="center">
         <h3>Devinez le nombre</h3>
+        <p>Nombre d'essais restant : <?php echo $nbEssaisRestants ?></p>
         <form action="">
             <input type="number" name="number" id="number" placeholder="Devinez le nombre" required>
             <input type="submit" value="Valider">
@@ -20,16 +21,12 @@
             <code>
 
                 <?php
-                if (file_exists('number.json')) {
-                    $readNumber = file_get_contents('number.json');
-                } else {
-                    $readNumber = null;
-                }
-                $number = json_decode($readNumber);
 
-                if (!isset($number)) {
+                if (isset($_SESSION['number'])) {
+                    $number = $_SESSION['$number'];
+                } else {
                     $number = rand(1, 100);
-                    file_put_contents('number.json', json_encode($number));
+                    $_SESSION['number'] = $number;
                 }
 
 
@@ -43,7 +40,7 @@
                         unlink('number.json');
                     }
                 } else if (isset($_GET['reset'])) {
-                    unlink('number.json');
+                    session_destroy();
                     header('Location: index.php');
                 } else {
                     echo "Veuillez entrer un nombre";

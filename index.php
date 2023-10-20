@@ -32,7 +32,7 @@
 
 
     ?>
-
+    session_start();
     const listOfPages = document.getElementById("listOfPages");
 
     files.forEach((file) => {
