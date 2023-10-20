@@ -21,7 +21,7 @@
             <code>
 
                 <?php
-
+                echo $_SESSION['number'];
                 if (isset($_SESSION['number'])) {
                     $number = $_SESSION['$number'];
                 } else {
