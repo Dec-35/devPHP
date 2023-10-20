@@ -80,12 +80,25 @@ form {
     width: 100%;
 }
 
-input {
+form.vertical {
+    flex-direction: column;
+}
+
+
+
+input,
+textarea {
     background-color: #eee;
     border: none;
     padding: 0.7em;
     border-radius: 5px;
     width: 100%;
+    font-size: 0.9em;
+}
+
+textarea {
+    height: 7em;
+    resize: none;
 }
 
 input[type="submit"] {
